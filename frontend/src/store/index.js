@@ -39,7 +39,6 @@ export default new Vuex.Store({
     },
     actions: {
         async getWeather({commit}) {
-            console.log(process.env.VUE_APP_API_URL)
             await axios.get(`${process.env.VUE_APP_API_URL}?city=${this.state.city}`).then(({data}) => {
                 commit('setCurrent', data.current);
                 commit('setHourly', data.hourly);
