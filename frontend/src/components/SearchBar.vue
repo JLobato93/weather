@@ -2,7 +2,7 @@
   <div class="search-bar">
     <input
       type="text"
-      id="search-input"
+      ref="search-input"
       :value="city"
       @keyup.enter="keyPress()"
     />
@@ -17,7 +17,7 @@ export default {
     ...mapActions(["getWeather"]),
     ...mapMutations(["setCity"]),
     keyPress() {
-      const searchValue = document.getElementById("search-input").value;
+      const searchValue = this.$refs['search-input'].value;
       this.setCity(searchValue);
       this.getWeather();
     },

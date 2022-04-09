@@ -1,4 +1,4 @@
-import helper from "@/utilities/helper";
+import dataConverter from "@/utilities/dataConverter";
 export default {
     methods: {
         renderChartData(temperature, labels, unit) {
@@ -8,7 +8,7 @@ export default {
                     labels,
                     datasets: [
                         {
-                            data: helper.transformChartTemp(temperature, unit),
+                            data: dataConverter.transformChartTemp(temperature, unit),
                             backgroundColor: ["hsla(320, 100%, 20%, 0.5)"],
                             borderColor: ["hsla(320, 100%, 20%, 0.5)"],
                         },

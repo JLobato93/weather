@@ -2,11 +2,6 @@
   <div class="grid-container">
     <CurrentWeather />
     <TenHourForecast />
-    <Chart
-      :data="renderChartData(this.chartData, this.chartLabels, this.unit)"
-      :labels="this.chartLabels"
-      :key="this.current.dt"
-    />
     <div class="settings">
       <DegreeToggle />
     </div>
@@ -16,22 +11,16 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import CurrentWeather from "@/components/CurrentWeather.vue";
-import TenHourForecast from "@/components/TenHourForecast.vue";
+import TenHourForecast from "@/components/HourlyForecast.vue";
 import DegreeToggle from "@/components/DegreeToggle.vue";
-import Chart from "@/components/Chart.vue";
-import chart from "@/mixins/chart";
 export default {
   name: "MainWeather",
-  mixins: [chart],
   components: {
     CurrentWeather,
     TenHourForecast,
     DegreeToggle,
-    Chart,
   },
-  computed: {
-    ...mapState(["chartData", "chartLabels", "current", "unit"]),
-  },
+
   methods: {
     ...mapActions(["getWeather"]),
   },

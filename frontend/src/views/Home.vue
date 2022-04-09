@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import MainWeather from '@/components/MainWeather.vue'
 import ForecastWeather from '@/components/ForecastWeather.vue'
 

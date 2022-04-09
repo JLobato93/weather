@@ -4,10 +4,12 @@ import router from '@/router'
 import store from '@/store'
 import "@/filters/converters";
 import "@/filters/string";
+import "@/utilities/prototype";
+
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
