@@ -19,3 +19,9 @@ npm run serve
 ```
 npm run build
 ```
+
+### Run unit test
+```
+npm run test:unit
+```
+

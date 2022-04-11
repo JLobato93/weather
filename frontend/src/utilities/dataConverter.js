@@ -1,14 +1,14 @@
 export default {
-    threeHourForecast(array) {
+    threeHourForecast(array, limit) {
         return array.filter((item, index) => {
-            if (index !== 0 && index % 3 === 0 && index < 19)
+            if (index % 3 === 0 && index < limit *3)
                 return item;
         });
     },
     extractProperty(array, property, limit) {
         let newArray = [];
         array.forEach((item, index) => {
-            if (index <= limit) newArray.push(item[property])
+            if (index < limit) newArray.push(item[property])
         });
         return newArray;
     },

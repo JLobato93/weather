@@ -21,7 +21,7 @@ export default new Vuex.Store({
             state.current = payload
         },
         setHourly(state, payload) {
-            state.hourly = dataConverter.threeHourForecast(payload)
+            state.hourly = dataConverter.threeHourForecast(payload, 6)
         },
         setDaily(state, payload) {
             state.daily = payload.splice(1, 6)
@@ -33,8 +33,8 @@ export default new Vuex.Store({
             state.city = payload.capitalize()
         },
         setChartData(state, payload) {
-            state.chartData = dataConverter.extractProperty(dataConverter.threeHourForecast(payload), 'temp', 6)
-            state.chartLabels = dataConverter.extractProperty(dataConverter.threeHourForecast(payload), 'dt', 6)
+            state.chartData = dataConverter.extractProperty(dataConverter.threeHourForecast(payload, 6), 'temp', 6)
+            state.chartLabels = dataConverter.extractProperty(dataConverter.threeHourForecast(payload, 6), 'dt', 6)
         },
     },
     actions: {
