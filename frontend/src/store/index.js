@@ -15,6 +15,7 @@ export default new Vuex.Store({
         city: "Almere",
         chartData: [],
         chartLabels: [],
+        loading: true,
     },
     mutations: {
         setCurrent(state, payload) {
@@ -36,14 +37,19 @@ export default new Vuex.Store({
             state.chartData = dataConverter.extractProperty(dataConverter.threeHourForecast(payload, 6), 'temp', 6)
             state.chartLabels = dataConverter.extractProperty(dataConverter.threeHourForecast(payload, 6), 'dt', 6)
         },
+        setLoading(state, payload) {
+            state.loading = payload
+        }
     },
     actions: {
         async getWeather({commit}) {
+            commit('setLoading', true)
             await axios.get(`${process.env.VUE_APP_API_URL}?city=${this.state.city}`).then(({data}) => {
                 commit('setCurrent', data.current);
                 commit('setHourly', data.hourly);
                 commit('setDaily', data.daily);
                 commit('setChartData', data.hourly);
+                commit('setLoading', false)
             }).catch(({response}) => {
                 return notification.alert(response.data.message, response.data.cod)
             })
