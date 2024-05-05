@@ -13,4 +13,4 @@ The UI has options for the metric and the imperial system.
 
 In the frontend and the backend folder you can find instructions on how to run the application locally.
 
-To see a demo you can visit the application at https://weather.jeffreylobato.com or at https://weather-app-jl.web.app/
+To see a demo you can visit the application at https://weather.jeffreylobato.com
