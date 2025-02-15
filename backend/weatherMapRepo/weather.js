@@ -16,7 +16,7 @@ const geocode = async function (city) {
 
 const getWeather = async function (lat, lon) {
     try {
-        const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY}`)
+        const { data } = await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY}`)
 
         if (data.length === 0) return { cod: 404, message: 'Weather data not found' }
 
